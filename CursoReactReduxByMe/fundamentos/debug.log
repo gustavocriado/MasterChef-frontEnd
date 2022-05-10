@@ -1,0 +1,6 @@
+[1008/202058.065:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\gusta\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\259f2636-4e21-4b7a-834b-9ebafb0d932a: O sistema não pode encontrar o caminho especificado. (0x3)
+[1008/202058.080:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\gusta\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\5100da7f-dfbf-40c7-9946-d4e9a2909e8b: O sistema não pode encontrar o caminho especificado. (0x3)
+[1008/202058.086:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\gusta\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\814ef9b7-3a3e-4363-b0d3-8f0bc81399ba: O sistema não pode encontrar o caminho especificado. (0x3)
+[1008/202058.096:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\gusta\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\8dd85d03-88c0-449d-8145-3ee7ac267b2a: O sistema não pode encontrar o caminho especificado. (0x3)
+[1008/202058.097:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\gusta\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\98590aee-a67f-47a4-9213-cc5976f96acf: O sistema não pode encontrar o caminho especificado. (0x3)
+[1008/202058.099:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)
