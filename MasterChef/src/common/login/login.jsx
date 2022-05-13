@@ -10,19 +10,35 @@ import { Button } from "primereact/button";
 import { Password } from "primereact/password";
 import { Checkbox } from "primereact/checkbox";
 import { Dialog } from "primereact/dialog";
+import { useNavigate } from 'react-router-dom'
 import { classNames } from "primereact/utils";
 import { Link } from "react-router-dom";
 import "./login.css";
 import "../index.css";
+import axios from "axios";
 
 export const Login = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [formData, setFormData] = useState({});
   const [value1, setValue1] = useState("");
+  const navigate = useNavigate()
+  
+  const LoginHandle = async (e) => {
+    var email = formik.values.email;
+    var password = value1;
+    
+    const model = JSON.stringify({email,password });
 
-  function LinkHandle(e) {}
-  function LoginHandle(e) {
-    setShowMessage(e);
+     const response = await axios.post("https://localhost:44304/Access/v1/Login",model,
+     {
+       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': 'http://localhost:3000'},
+     }
+     );
+     
+     if(response?.data.authenticated === true){
+       setShowMessage(true)
+       formik.resetForm();
+     }
   }
 
   const formik = useFormik({
@@ -83,7 +99,7 @@ export const Login = () => {
         label="OK"
         className="p-button-text"
         autoFocus
-        onClick={() => setShowMessage(false)}
+        onClick={() => navigate('/')} //direcionar de volta para a home
       />
     </div>
   );
