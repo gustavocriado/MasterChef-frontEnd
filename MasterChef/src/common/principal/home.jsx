@@ -10,10 +10,9 @@ import { Card } from "primereact/card";
 import { Image } from "primereact/image";
 import Dialog from "../dialog/dialog";
 import "./home.css";
-//import "../index.css";
-
 export class Home extends Component {
   render() {
+    const tamanho = 4;
     const header = (
       <Image
         src="https://aldeiaconteudo.com.br/wp-content/uploads/2019/06/ciclo-de-vida-do-meme-aldeia-marketing-de-conteudo.jpg"
@@ -24,74 +23,35 @@ export class Home extends Component {
     );
 
     const footer = <Dialog />;
-
+    let rows = [];
+    for (let i = 0; i < tamanho; i++) {
+      rows.push(
+        <Card
+          title="Advanced Card"
+          subTitle="Subtitle"
+          header={header}
+          footer={footer}
+          className="teste"
+        >
+          <p className="m-0" style={{ lineHeight: "1.5" }}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
+            sed consequuntur error repudiandae numquam deserunt quisquam
+            repellat libero asperiores earum nam nobis, culpa ratione quam
+            perferendis esse, cupiditate neque quas!
+          </p>
+        </Card>
+      );
+    }
     return (
-      <div>
+      <>
         <Header />
         <div className="divmae">
-          <Card
-            title="Advanced Card"
-            subTitle="Subtitle"
-            style={{ width: "25em" }}
-            header={header}
-            footer={footer}
-            className="teste"
-          >
-            <p className="m-0" style={{ lineHeight: "1.5" }}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Inventore sed consequuntur error repudiandae numquam deserunt
-              quisquam repellat libero asperiores earum nam nobis, culpa ratione
-              quam perferendis esse, cupiditate neque quas!
-            </p>
-          </Card>
-          <Card
-            title="Advanced Card"
-            subTitle="Subtitle"
-            style={{ width: "25em" }}
-            header={header}
-            footer={footer}
-            className="teste"
-          >
-            <p className="m-0" style={{ lineHeight: "1.5" }}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Inventore sed consequuntur error repudiandae numquam deserunt
-              quisquam repellat libero asperiores earum nam nobis, culpa ratione
-              quam perferendis esse, cupiditate neque quas!
-            </p>
-          </Card>
-          <Card
-            title="Advanced Card"
-            subTitle="Subtitle"
-            style={{ width: "25em" }}
-            header={header}
-            footer={footer}
-            className="teste"
-          >
-            <p className="m-0" style={{ lineHeight: "1.5" }}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Inventore sed consequuntur error repudiandae numquam deserunt
-              quisquam repellat libero asperiores earum nam nobis, culpa ratione
-              quam perferendis esse, cupiditate neque quas!
-            </p>
-          </Card>
-          <Card
-            title="Advanced Card"
-            subTitle="Subtitle"
-            style={{ width: "25em" }}
-            header={header}
-            footer={footer}
-            className="teste"
-          >
-            <p className="m-0" style={{ lineHeight: "1.5" }}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Inventore sed consequuntur error repudiandae numquam deserunt
-              quisquam repellat libero asperiores earum nam nobis, culpa ratione
-              quam perferendis esse, cupiditate neque quas!
-            </p>
-          </Card>
+          <div className="pablo">
+            <div className="rael">{rows}</div>
+          </div>
         </div>
         <Footer />
-      </div>
+      </>
     );
   }
 }

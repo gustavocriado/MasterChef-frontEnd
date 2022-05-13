@@ -1,10 +1,38 @@
 .teste{
   display: inline-block;
-  margin: 0 50px 0 0;
+  margin: 30px;
+  width: 25em;
 }
-.divamae{
+.pablo{
   display: flex;
   justify-content: center;
+  width: 100%;
+}
+.divmae{
+  min-height: calc(100vh - 160px);
+  height: 100%;
+  overflow-y: scroll;
+  
+}
+.rael{
+  max-height: calc(100vh - 160px);
+  height: 100%;
+  display: block;
+  width: 100%;
   text-align: center;
-  align-items: center;
+  margin: 0 auto; 
+}
+@media screen and (max-width: 815px) {
+  .divmae{
+    min-height: calc(100vh - 60px);
+  }
+  .rael{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }  
+  .teste{
+    margin: 50px 0;
+  }
 }
