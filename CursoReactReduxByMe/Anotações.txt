@@ -1,3 +1,0 @@
-o comando NPX é um comando do node que baixa as dependencias de um projeto temporariamente de forma não global
-create-react-app NomedoProjeto é um comando que cria um projeto react
-react é um framework para SPA(Single Page Application)

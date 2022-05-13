@@ -15,11 +15,17 @@ export class Header extends Component {
       {
         label: "Home",
         icon: "pi pi-fw pi-home",
+        url: "/",
       },
-      { label: "Minhas Receitas", icon: "pi pi-fw pi-pencil" },
+      {
+        label: "Minhas Receitas",
+        icon: "pi pi-fw pi-pencil",
+        url: "/register",
+      },
       {
         label: "Perfil",
         icon: "pi pi-fw pi-user",
+        url: "/profile",
       },
       {
         label: "Sair",
@@ -42,7 +48,10 @@ export class Header extends Component {
         className="mr-2"
       ></img>
     );
-    const end = <InputText placeholder="Search" type="text" />;
+    const end = (
+      // <label htmlFor="email">teste</label>
+      <InputText placeholder="Pesquisar" type="text" />
+    );
     return (
       <div>
         <div className="card">

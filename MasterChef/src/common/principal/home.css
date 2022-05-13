@@ -1,0 +1,10 @@
+.teste{
+  display: inline-block;
+  margin: 0 50px 0 0;
+}
+.divamae{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
