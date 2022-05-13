@@ -12,7 +12,7 @@ import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
 import { Password } from "primereact/password";
 import { Checkbox } from "primereact/checkbox";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import { Dialog } from "primereact/dialog";
 import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
@@ -26,26 +26,32 @@ export const SingUp = () => {
   const [formData, setFormData] = useState({});
   const countryservice = new CountryService();
   const [value1, setValue1] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const SignHandle = async (e) => {
     var email = formik.values.email;
-    var password = value1;
+    var password = formik.values.password;
+    var name = formik.values.name;
+    var birthday = formik.values.date;
+    var contry = "";
+    const model = JSON.stringify({ name, email, password, birthday, contry });
 
-    const model = JSON.stringify({email,password });
+    const response = await axios.post(
+      "https://receitasfiap-auth.herokuapp.com/Register/v1/User",
+      model,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "http://localhost:3000",
+        },
+      }
+    );
 
-     const response = await axios.post("https://receitasfiap-auth.herokuapp.com/Register/v1/User",model,
-     {
-       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': 'http://localhost:3000'},
-     }
-     );
-     
-     if(response?.data.authenticated === true){
-       setShowMessage(true)
-       formik.resetForm();
-     }
-  }
-  
+    if (response?.data.authenticated === true) {
+      setShowMessage(true);
+      formik.resetForm();
+    }
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -107,7 +113,7 @@ export const SingUp = () => {
         label="OK"
         className="p-button-text"
         autoFocus
-        onClick={() => navigate('/')}
+        onClick={() => navigate("/")}
       />
     </div>
   );
@@ -272,8 +278,12 @@ export const SingUp = () => {
               </label>
             </div>
 
-            <Button type="submit" label="Cadastrar" className="mt-2"
-            onClick={() => SignHandle(true)} />
+            <Button
+              type="submit"
+              label="Cadastrar"
+              className="mt-2"
+              onClick={() => SignHandle(true)}
+            />
           </form>
         </div>
       </div>
