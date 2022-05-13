@@ -12,21 +12,40 @@ import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
 import { Password } from "primereact/password";
 import { Checkbox } from "primereact/checkbox";
+import { useNavigate } from 'react-router-dom'
 import { Dialog } from "primereact/dialog";
 import { Divider } from "primereact/divider";
 import { classNames } from "primereact/utils";
 import { CountryService } from "../service/CountryService";
 import "./singup.css";
+import axios from "axios";
 
 export const SingUp = () => {
   const [countries, setCountries] = useState([]);
   const [showMessage, setShowMessage] = useState(false);
   const [formData, setFormData] = useState({});
   const countryservice = new CountryService();
+  const [value1, setValue1] = useState("");
+  const navigate = useNavigate()
 
-  useEffect(() => {
-    countryservice.getCountries().then((data) => setCountries(data));
-  }, []);
+  const SignHandle = async (e) => {
+    var email = formik.values.email;
+    var password = value1;
+
+    const model = JSON.stringify({email,password });
+
+     const response = await axios.post("https://receitasfiap-auth.herokuapp.com/Register/v1/User",model,
+     {
+       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': 'http://localhost:3000'},
+     }
+     );
+     
+     if(response?.data.authenticated === true){
+       setShowMessage(true)
+       formik.resetForm();
+     }
+  }
+  
 
   const formik = useFormik({
     initialValues: {
@@ -88,7 +107,7 @@ export const SingUp = () => {
         label="OK"
         className="p-button-text"
         autoFocus
-        onClick={() => setShowMessage(false)}
+        onClick={() => navigate('/')}
       />
     </div>
   );
@@ -253,7 +272,8 @@ export const SingUp = () => {
               </label>
             </div>
 
-            <Button type="submit" label="Cadastrar" className="mt-2" />
+            <Button type="submit" label="Cadastrar" className="mt-2"
+            onClick={() => SignHandle(true)} />
           </form>
         </div>
       </div>

@@ -29,7 +29,7 @@ export const Login = () => {
     
     const model = JSON.stringify({email,password });
 
-     const response = await axios.post("https://localhost:44304/Access/v1/Login",model,
+     const response = await axios.post("https://receitasfiap-auth.herokuapp.com/Access/v1/Login",model,
      {
        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': 'http://localhost:3000'},
      }
